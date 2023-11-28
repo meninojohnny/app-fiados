@@ -32,8 +32,14 @@ class CardEvent extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
-              Text(date),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
+                  Text('Data: $date'),
+                  Text('Total de Fiados: ${evento.fiados.length}'),
+                ],
+              ),
               IconButton(
                 onPressed: () {onRemove(id);}, 
                 icon: const Icon(

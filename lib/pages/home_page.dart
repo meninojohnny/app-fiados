@@ -13,18 +13,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   final List<EventoModel> _eventos = [
-    EventoModel(title: 'Venda de Pastel', date: '12/02'),
-    EventoModel(title: 'Venda de Carne', date: '12/02'),
-    EventoModel(title: 'Venda de Coxinha', date: '12/02'),
-    // EventoModel(title: 'Venda de Cachorro quente', date: '12/02'),
-    // EventoModel(title: 'Venda de Pizza', date: '12/02'),
-    // EventoModel(title: 'Venda de Lasanha', date: '12/02'),
-    // EventoModel(title: 'Venda de Crepe', date: '12/02'),
-    // EventoModel(title: 'Venda de Sorvete', date: '12/02'),
+    // EventoModel(title: 'Venda de Pastel', date: '12/02'),
+    // EventoModel(title: 'Venda de Carne', date: '12/02'),
+    // EventoModel(title: 'Venda de Coxinha', date: '12/02'),
   ];
 
   void _addEvento(String title, String date) {
-    _eventos.add(EventoModel(title: title, date: date));
+    if (title.isEmpty || date.isEmpty) {
+      return;
+    }
+    _eventos.add(EventoModel(title: title.toUpperCase(), date: date));
     setState(() {});
     Navigator.pop(context);
   }

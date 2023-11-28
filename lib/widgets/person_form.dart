@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
 
-class PersonForm extends StatelessWidget {
+class PersonForm extends StatefulWidget {
   final Function(String, String) onSubmitted;
+
+  const PersonForm({super.key, required this.onSubmitted});
+
+  @override
+  State<PersonForm> createState() => _PersonFormState();
+}
+
+class _PersonFormState extends State<PersonForm> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController valueController = TextEditingController();
+  bool buttonHabilit = false;
 
-  PersonForm({super.key, required this.onSubmitted});
+  void onChanged(value) {
+    String name = nameController.text;
+    String value = valueController.text;
+    if (name == '' || value == '') {
+      buttonHabilit = false;
+    } else {
+      buttonHabilit = true;
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +39,7 @@ class PersonForm extends StatelessWidget {
           ),
           const SizedBox(height: 10,),
           TextField(
+            onChanged: onChanged,
             controller: nameController,
             decoration: const InputDecoration(
               hintText: 'Nome:'
@@ -28,6 +47,7 @@ class PersonForm extends StatelessWidget {
           ),
           const SizedBox(height: 10,),
           TextField(
+            onChanged: onChanged,
             controller: valueController,
             decoration: const InputDecoration(
               hintText: 'Valor:'
@@ -37,15 +57,21 @@ class PersonForm extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () => onSubmitted(
+              style: TextButton.styleFrom(
+                backgroundColor: buttonHabilit ? Colors.blue : null
+              ),
+              onPressed: () => widget.onSubmitted(
                 nameController.text, 
                 valueController.text,
               ), 
-              child: const Text('Adicionar Pessoa'),
+              child: const Text(
+                'Adicionar Pessoa',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ],
       ),
-    );;
+    );
   }
 }

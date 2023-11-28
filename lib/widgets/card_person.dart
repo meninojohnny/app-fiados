@@ -26,7 +26,7 @@ class CardPerson extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(name, style: const TextStyle(fontWeight: FontWeight.bold),),
-            Text(value),
+            Text('R\$ $value'),
             IconButton(
               onPressed: () {onRemove(id);}, 
               icon: const Icon(

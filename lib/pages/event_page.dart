@@ -21,9 +21,12 @@ class _EventPageState extends State<EventPage> {
     final fiados = widget.evento.fiados;
 
     void addPerson(String name, String value) {
-    fiados.add(PersonModel(name: name, value: value));
-    setState(() {});
-    Navigator.pop(context);
+      if (name.isEmpty || value.isEmpty) {
+        return;
+      }
+      fiados.add(PersonModel(name: name, value: value));
+      setState(() {});
+      Navigator.pop(context);
     }
 
     void removePerson(id) {
@@ -58,6 +61,10 @@ class _EventPageState extends State<EventPage> {
             icon: const Icon(Icons.add, color: Colors.white),
           )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {_openPersonFormModel(context);},
+        child: const Icon(Icons.add),
       ),
       body: SingleChildScrollView(
         child: Padding(
