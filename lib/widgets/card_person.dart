@@ -1,5 +1,4 @@
 import 'package:app_fiado/model/person_model.dart';
-import 'package:app_fiado/pages/event_page.dart';
 import 'package:flutter/material.dart';
 
 class CardPerson extends StatelessWidget {
@@ -16,7 +15,7 @@ class CardPerson extends StatelessWidget {
   Widget build(BuildContext context) {
 
     String name = person.name;
-    double value = person.value;
+    String value = person.value;
     double id = person.id;
 
     return Card(
@@ -27,7 +26,7 @@ class CardPerson extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(name, style: const TextStyle(fontWeight: FontWeight.bold),),
-            Text(value.toString()),
+            Text(value),
             IconButton(
               onPressed: () {onRemove(id);}, 
               icon: const Icon(

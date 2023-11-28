@@ -1,7 +1,7 @@
 import 'package:app_fiado/model/evento_model.dart';
 import 'package:app_fiado/model/person_model.dart';
-import 'package:app_fiado/widgets/card_event.dart';
 import 'package:app_fiado/widgets/card_person.dart';
+import 'package:app_fiado/widgets/person_form.dart';
 import 'package:flutter/material.dart';
 
 class EventPage extends StatefulWidget {
@@ -20,6 +20,12 @@ class _EventPageState extends State<EventPage> {
     final String title = widget.evento.title;
     final fiados = widget.evento.fiados;
 
+    void addPerson(String name, String value) {
+    fiados.add(PersonModel(name: name, value: value));
+    setState(() {});
+    Navigator.pop(context);
+    }
+
     void removePerson(id) {
       for (final i in fiados) {
         if (i.id == id) {
@@ -29,19 +35,26 @@ class _EventPageState extends State<EventPage> {
       setState(() {});
     }
 
+    void _openPersonFormModel(BuildContext context) {
+      showModalBottomSheet(
+        context: context, 
+        builder: (_) => PersonForm(onSubmitted: addPerson,),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text(
           title,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
           color: Colors.white,
           ),
         ),
         actions: [
           IconButton(
-            onPressed: () {}, 
+            onPressed: () {_openPersonFormModel(context);}, 
             icon: const Icon(Icons.add, color: Colors.white),
           )
         ],
