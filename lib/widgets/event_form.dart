@@ -41,7 +41,7 @@ class _EventFormState extends State<EventForm> {
             onChanged: onChanged,
             controller: titleController,
             decoration: const InputDecoration(
-              hintText: 'Titulo do Evento:'
+              hintText: 'Titulo do Evento:',
             ),
           ),
           const SizedBox(height: 10,),
@@ -57,7 +57,7 @@ class _EventFormState extends State<EventForm> {
             alignment: Alignment.centerRight,
             child: TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: buttonHabilit ? Colors.blue : null
+                backgroundColor: buttonHabilit ? const Color.fromRGBO(94, 80, 63, 1) : Colors.grey
               ),
               onPressed: () => widget.onSubmitted(
                 titleController.text, 

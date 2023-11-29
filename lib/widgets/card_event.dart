@@ -20,7 +20,7 @@ class CardEvent extends StatelessWidget {
     double id = evento.id;
 
     return Card(
-      color: const Color.fromARGB(255, 99, 183, 170),
+      color: const Color.fromRGBO(234, 224, 213, 1),
       child: InkWell(
         onTap: () {
           Navigator.push(

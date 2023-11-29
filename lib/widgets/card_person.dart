@@ -19,14 +19,14 @@ class CardPerson extends StatelessWidget {
     double id = person.id;
 
     return Card(
-      color: const Color.fromARGB(255, 99, 183, 170),
+      color: const Color.fromRGBO(234, 224, 213, 1),
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(name, style: const TextStyle(fontWeight: FontWeight.bold),),
-            Text('R\$ $value'),
+            Text('R\$ $value', style: TextStyle(color: const Color.fromARGB(255, 13, 103, 16)),),
             IconButton(
               onPressed: () {onRemove(id);}, 
               icon: const Icon(

@@ -13,9 +13,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   final List<EventoModel> _eventos = [
-    // EventoModel(title: 'Venda de Pastel', date: '12/02'),
-    // EventoModel(title: 'Venda de Carne', date: '12/02'),
-    // EventoModel(title: 'Venda de Coxinha', date: '12/02'),
+    EventoModel(title: 'Venda de Pastel', date: '12/02'),
+    EventoModel(title: 'Venda de Carne', date: '12/02'),
+    EventoModel(title: 'Venda de Coxinha', date: '12/02'),
   ];
 
   void _addEvento(String title, String date) {
@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
 
   void _openEventFormModel(BuildContext context) {
     showModalBottomSheet(
+      backgroundColor: const Color.fromRGBO(234, 224, 213, 1),
       context: context, 
       builder: (_) => EventForm(onSubmitted: _addEvento,),
     );
@@ -46,10 +47,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(198, 172, 143, 1),
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromRGBO(94, 80, 63, 1),
         title: const Text(
-          'Home Page',
+          'Gerenciador de Fiados',
           textAlign: TextAlign.center,
           style: TextStyle(
           color: Colors.white,
@@ -63,8 +65,9 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromRGBO(94, 80, 63, 1),
         onPressed: () => _openEventFormModel(context),
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add, color: Colors.white,),
       ),
       body: SingleChildScrollView(
         child: Padding(

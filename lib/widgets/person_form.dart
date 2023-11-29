@@ -58,7 +58,7 @@ class _PersonFormState extends State<PersonForm> {
             alignment: Alignment.centerRight,
             child: TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: buttonHabilit ? Colors.blue : null
+                backgroundColor: buttonHabilit ? const Color.fromRGBO(94, 80, 63, 1) : Colors.grey
               ),
               onPressed: () => widget.onSubmitted(
                 nameController.text, 

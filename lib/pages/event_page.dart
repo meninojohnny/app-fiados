@@ -40,20 +40,28 @@ class _EventPageState extends State<EventPage> {
 
     void _openPersonFormModel(BuildContext context) {
       showModalBottomSheet(
+        backgroundColor: const Color.fromRGBO(234, 224, 213, 1),
         context: context, 
         builder: (_) => PersonForm(onSubmitted: addPerson,),
       );
     }
 
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(198, 172, 143, 1),
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromRGBO(94, 80, 63, 1),
         title: Text(
           title,
           textAlign: TextAlign.center,
           style: const TextStyle(
           color: Colors.white,
           ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white,),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         actions: [
           IconButton(
@@ -63,8 +71,9 @@ class _EventPageState extends State<EventPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromRGBO(94, 80, 63, 1),
         onPressed: () {_openPersonFormModel(context);},
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add, color: Colors.white,),
       ),
       body: SingleChildScrollView(
         child: Padding(
